@@ -1,0 +1,139 @@
+07-Introducing-Window-Functions-With-OVER.sql
+08-Introducing-Window-Functions-With-OVER-Exercises.sql
+09-PARTITION-BY.sql
+10-PARTITION-BY-Exercises.sql
+11-ROW_NUMBER.sql
+12-ROW_NUMBER-Exercises.sql
+13-RANK-and-DENSE_RANK.sql
+14-RANK-and-DENSE_RANK-Exercises.sql
+15-LEAD-and-LAG.sql
+16-LEAD-and-LAG-Exercises.sql
+17-Introducing-Subqueries.sql
+18-Introducing-Subqueries-Exercises.sql
+19-Scalar-Subqueries.sql
+20-Scalar-Subqueries-Exercises.sql
+21-Correlated-Subqueries.sql
+22-Correlated-Subqueries-Exercises.sql
+23-EXISTS.sql
+24-EXISTS-Exercises.sql
+25-FOR-XML-PATH-With-STUFF.sql
+26-FOR-XML-PATH-With-STUFF-Exercises.sql
+27-PIVOT-Part-1.sql
+28-PIVOT-Part-2.sql
+29-PIVOT-Exercises.sql
+30-CTEs-Part-1.sql
+31-CTEs-Part-2.sql
+32-CTEs-Exercise.sql
+33-Recursive-CTEs.sql
+34-Recursive-CTEs-Exercises.sql
+35-Temp-Tables-Part-1.sql
+36-Temp-Tables-Part-2.sql
+37-Temp-Tables-Exercises.sql
+38-CREATE-and-INSERT.sql
+39-CREATE-and-INSERT-Exercise.sql
+40-TRUNCATE-Part-1.sql
+41-TRUNCATE-Part-2.sql
+42-TRUNCATE-Exercise.sql
+43-UPDATE-Part-1.sql
+44-UPDATE-Part-2.sql
+45-UPDATE-Exercise.sql
+46-DELETE.sql
+47-Optimizing-With-UPDATE-Part-1.sql
+48-Optimizing-With-UPDATE-Part-2.sql
+49-Optimizing-With-UPDATE-Exercise.sql
+50-An-Improved-EXISTS-With-UPDATE.sql
+51-An-Improved-EXISTS-With-UPDATE-Exercise.sql
+52-Introducing-Indexes.sql
+53-Optimizing-With-Indexes-Example.sql
+54-Optimizing-With-Indexes-Exercise.sql
+55-Lookup-Tables-Part-1.sql
+56-Lookup-Tables-Part-2.sql
+57-Lookup-Tables-Exercises.sql
+58-Variables-Part-1.sql
+59-Variables-Exercise-1.sql
+60-Variables-Part-2.sql
+61-Variables-Exercise-2.sql
+62-Introducing-User-Defined-Functions.sql
+63-NOTE-TO-STUDENTS.sql
+64-Making-Functions-Flexible-With-Parameters.sql
+65-User-Defined-Functions-Exercises.sql
+66-Stored-Procedures.sql
+67-Stored-Procedures-Exercise.sql
+68-Control-Flow-With-IF-Statements.sql
+69-Control-Flow-With-IF-Statements-Exercise.sql
+70-Using-Multiple-IF-Statements.sql
+71-Using-Multiple-IF-Statements-Exercise.sql
+72-Dynamic-SQL-Part-1.sql
+73-Dynamic-SQL-Part-2.sql
+74-Dynamic-SQL-Exercises.sql
+
+
+
+type nul > 07-Introducing-Window-Functions-With-OVER.sql
+type nul > 08-Introducing-Window-Functions-With-OVER-Exercises.sql
+type nul > 09-PARTITION-BY.sql
+type nul > 10-PARTITION-BY-Exercises.sql
+type nul > 11-ROW_NUMBER.sql
+type nul > 12-ROW_NUMBER-Exercises.sql
+type nul > 13-RANK-and-DENSE_RANK.sql
+type nul > 14-RANK-and-DENSE_RANK-Exercises.sql
+type nul > 15-LEAD-and-LAG.sql
+type nul > 16-LEAD-and-LAG-Exercises.sql
+type nul > 17-Introducing-Subqueries.sql
+type nul > 18-Introducing-Subqueries-Exercises.sql
+type nul > 19-Scalar-Subqueries.sql
+type nul > 20-Scalar-Subqueries-Exercises.sql
+type nul > 21-Correlated-Subqueries.sql
+type nul > 22-Correlated-Subqueries-Exercises.sql
+type nul > 23-EXISTS.sql
+type nul > 24-EXISTS-Exercises.sql
+type nul > 25-FOR-XML-PATH-With-STUFF.sql
+type nul > 26-FOR-XML-PATH-With-STUFF-Exercises.sql
+type nul > 27-PIVOT-Part-1.sql
+type nul > 28-PIVOT-Part-2.sql
+type nul > 29-PIVOT-Exercises.sql
+type nul > 30-CTEs-Part-1.sql
+type nul > 31-CTEs-Part-2.sql
+type nul > 32-CTEs-Exercise.sql
+type nul > 33-Recursive-CTEs.sql
+type nul > 34-Recursive-CTEs-Exercises.sql
+type nul > 35-Temp-Tables-Part-1.sql
+type nul > 36-Temp-Tables-Part-2.sql
+type nul > 37-Temp-Tables-Exercises.sql
+type nul > 38-CREATE-and-INSERT.sql
+type nul > 39-CREATE-and-INSERT-Exercise.sql
+type nul > 40-TRUNCATE-Part-1.sql
+type nul > 41-TRUNCATE-Part-2.sql
+type nul > 42-TRUNCATE-Exercise.sql
+type nul > 43-UPDATE-Part-1.sql
+type nul > 44-UPDATE-Part-2.sql
+type nul > 45-UPDATE-Exercise.sql
+type nul > 46-DELETE.sql
+type nul > 47-Optimizing-With-UPDATE-Part-1.sql
+type nul > 48-Optimizing-With-UPDATE-Part-2.sql
+type nul > 49-Optimizing-With-UPDATE-Exercise.sql
+type nul > 50-An-Improved-EXISTS-With-UPDATE.sql
+type nul > 51-An-Improved-EXISTS-With-UPDATE-Exercise.sql
+type nul > 52-Introducing-Indexes.sql
+type nul > 53-Optimizing-With-Indexes-Example.sql
+type nul > 54-Optimizing-With-Indexes-Exercise.sql
+type nul > 55-Lookup-Tables-Part-1.sql
+type nul > 56-Lookup-Tables-Part-2.sql
+type nul > 57-Lookup-Tables-Exercises.sql
+type nul > 58-Variables-Part-1.sql
+type nul > 59-Variables-Exercise-1.sql
+type nul > 60-Variables-Part-2.sql
+type nul > 61-Variables-Exercise-2.sql
+type nul > 62-Introducing-User-Defined-Functions.sql
+type nul > 63-NOTE-TO-STUDENTS.sql
+type nul > 64-Making-Functions-Flexible-With-Parameters.sql
+type nul > 65-User-Defined-Functions-Exercises.sql
+type nul > 66-Stored-Procedures.sql
+type nul > 67-Stored-Procedures-Exercise.sql
+type nul > 68-Control-Flow-With-IF-Statements.sql
+type nul > 69-Control-Flow-With-IF-Statements-Exercise.sql
+type nul > 70-Using-Multiple-IF-Statements.sql
+type nul > 71-Using-Multiple-IF-Statements-Exercise.sql
+type nul > 72-Dynamic-SQL-Part-1.sql
+type nul > 73-Dynamic-SQL-Part-2.sql
+type nul > 74-Dynamic-SQL-Exercises.sql
