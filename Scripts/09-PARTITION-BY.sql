@@ -23,3 +23,23 @@ order by 1, 2
 -- SQL Server allows you to sort the result set based on the ordinal positions of columns that appear in the select list.
 -- https://stackoverflow.com/questions/57126965/order-by-1-2-3-4
 
+--Sum of line totals via OVER with PARTITION BY
+
+SELECT
+	ProductID,
+	SalesOrderID,
+	SalesOrderDetailID,
+	OrderQty,
+	UnitPrice,
+	UnitPriceDiscount,
+	LineTotal,
+	ProductIDLineTotal = SUM(LineTotal) OVER(PARTITION BY ProductID, OrderQty)
+
+FROM AdventureWorks2019.Sales.SalesOrderDetail
+
+ORDER BY ProductID, OrderQty 
+
+--ProductID	SalesOrderID	SalesOrderDetailID	OrderQty	UnitPrice	UnitPriceDiscount	LineTotal	ProductIDLineTotal
+--707	43665	63	1	20.1865	0.00	20.186500	80124.593740
+--707	43677	164	1	20.1865	0.00	20.186500	80124.593740
+--707	43678	185	1	20.1865	0.00	20.186500	80124.593740
