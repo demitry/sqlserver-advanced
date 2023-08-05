@@ -205,6 +205,61 @@ order by PercentofMaxRate desc
 ```
 
 ## PARTITION BY [9]
+
+- PARTITION BY - compute aggregate totals for group within our data, still retaining row-level details
+- PARTITION BY - assigns each row of your query output to a group, without collapsing your data into fewer rows as with GROUP BY
+- Instead of groups being assigned based on distinct values of ALL the non-aggregated columns of our data, we need to specify the columns this groups will be based on.
+
+-SQL Server allows you to sort the result set based on the ordinal positions of columns that appear in the select list.
+- https://stackoverflow.com/questions/57126965/order-by-1-2-3-4
+
+```sqluse AdventureWorks2019
+
+select ProductID, OrderQty, LineTotal
+from Sales.SalesOrderDetail
+order by 1, 2
+--ProductID	OrderQty	LineTotal
+--707	1	20.186500
+--707	1	20.186500
+--707	1	20.186500
+--707	1	15.139890
+
+select ProductID, OrderQty,
+LineTotal = SUM(LineTotal)
+from Sales.SalesOrderDetail
+group by ProductID, OrderQty
+order by 1, 2
+--ProductID	OrderQty	LineTotal
+--707	1	80124.593740
+--707	2	5455.969950
+--707	3	7689.607560
+--707	4	11286.604140
+
+-- SQL Server allows you to sort the result set based on the ordinal positions of columns that appear in the select list.
+-- https://stackoverflow.com/questions/57126965/order-by-1-2-3-4
+
+-- Sum of line totals via OVER with PARTITION BY
+
+SELECT
+	ProductID,
+	SalesOrderID,
+	SalesOrderDetailID,
+	OrderQty,
+	UnitPrice,
+	UnitPriceDiscount,
+	LineTotal,
+	ProductIDLineTotal = SUM(LineTotal) OVER(PARTITION BY ProductID, OrderQty)
+
+FROM AdventureWorks2019.Sales.SalesOrderDetail
+
+ORDER BY ProductID, OrderQty 
+
+--ProductID	SalesOrderID	SalesOrderDetailID	OrderQty	UnitPrice	UnitPriceDiscount	LineTotal	ProductIDLineTotal
+--707	43665	63	1	20.1865	0.00	20.186500	80124.593740
+--707	43677	164	1	20.1865	0.00	20.186500	80124.593740
+--707	43678	185	1	20.1865	0.00	20.186500	80124.593740
+```
+
 ## PARTITION BY - Exercises [10]
 ## ROW_NUMBER [11]
 ## ROW_NUMBER - Exercises [12]
