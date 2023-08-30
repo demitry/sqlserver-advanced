@@ -81,7 +81,7 @@
 - The aggregate calculation is tacked as an **additional column**
 - It is possible to **group these calculations** like we can with aggregate queries, using the PARTITION
 
-**Aggregate Functions** collapse you rows in a groups based on unique values in a columns you inslude in the select statement
+**Aggregate Functions** collapse you rows in a groups based on unique values in a columns you include in the select statement
 
 vs.
 
@@ -213,7 +213,8 @@ order by PercentofMaxRate desc
 -SQL Server allows you to sort the result set based on the ordinal positions of columns that appear in the select list.
 - https://stackoverflow.com/questions/57126965/order-by-1-2-3-4
 
-```sqluse AdventureWorks2019
+```sql 
+use AdventureWorks2019
 
 select ProductID, OrderQty, LineTotal
 from Sales.SalesOrderDetail
@@ -620,9 +621,9 @@ order by SalesOrderID, LineTotal desc
 --43659	7	2039.994000	 3	 3  <--- SAME RANK
 --43659	4	2039.994000	 4	 3
 --43659	5	2039.994000	 5	 3
---43659	3	2024.994000	6	6  <--- BUT NOTE - RANK jumps to overal position in a partition group
+--43659	3	2024.994000	6	6  <--- BUT NOTE - RANK jumps to overall position in a partition group
 --43659	1	2024.994000	7	6
---43659	8	86.521200	8	8  <--- RANK jumps to overal position in a partition group
+--43659	8	86.521200	8	8  <--- RANK jumps to overall position in a partition group
 
 -- But if you don't want RANK jumps:
 
@@ -1059,7 +1060,33 @@ WHERE PurchaseOrderRank <= 3
 ```
 
 ## Scalar Subqueries [19]
+
+Scalar - Returns single value
+
+It is possible to use scalar in WHERE clause
+
+```sql
+SELECT
+	AVG(ListPrice)
+FROM AdventureWorks2019.Production.Product
+
+--Example 2: Scalar subqueries in the SELECT and WHERE clauses
+
+SELECT 
+	   ProductID
+      ,[Name]
+      ,StandardCost
+      ,ListPrice
+	  ,AvgListPrice = (SELECT AVG(ListPrice) FROM AdventureWorks2019.Production.Product)
+	  ,AvgListPriceDiff = ListPrice - (SELECT AVG(ListPrice) FROM AdventureWorks2019.Production.Product)
+FROM AdventureWorks2019.Production.Product
+WHERE ListPrice > (SELECT AVG(ListPrice) FROM AdventureWorks2019.Production.Product) 
+-- Possible to use scalar in WHERE clause
+ORDER BY ListPrice ASC
+```
+
 ## Scalar Subqueries - Exercises [20]
+
 ## Correlated Subqueries [21]
 ## Correlated Subqueries - Exercises [22]
 ## EXISTS [23]
