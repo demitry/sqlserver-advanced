@@ -85,7 +85,7 @@
 
 vs.
 
-**Window Functions** - allow to retaint all row delails while perfirming the same type of aggregate calculations. sum or count
+**Window Functions** - allow to retain all row details while performing the same type of aggregate calculations. sum or count
 
 ```sql
 use AdventureWorks2019;
@@ -773,6 +773,50 @@ join Production.ProductCategory pcat
 ```
 
 ## LEAD and LAG [15]
+
+- Grab values from subsequent or previous records relative to the position of the "current" record in our data
+- Useful, compare value in a current column to the next or previous value in the same column - but side-by-side, in the same row
+- Very common problem in real world analytic scenarios.
+
+```sql
+SELECT Name, Gender, Salary, 
+    LEAD(Salary, 2) OVER (ORDER BY Salary) AS Lead_2,
+    LAG(Salary, 1, -1) OVER (ORDER BY Salary) AS Lag_1
+FROM Employees
+
+--Name	Gender	Salary	Lead_2	Lag_1
+--Mark	Male	1000	3000	-1     <- default -1 is set
+--John	Male	2000	4000	1000
+--Pam	Female	3000	5000	2000
+--Sara	Female	4000	6000	3000
+--Todd	Male	5000	7000	4000
+--Mary	Female	6000	8000	5000
+--Ben	Male	7000	9000	6000
+--Jodi	Female	8000	9500	7000
+--Tom	Male	9000	NULL	8000
+--Ron	Male	9500	NULL	9000
+
+-- Lead and Lag functions example WITH partitions : Notice that in this example,
+-- Lead and Lag functions return default value if the number of rows to lead or lag goes beyond first row or last row in the partition. 
+
+SELECT Name, Gender, Salary, 
+    LEAD(Salary, 2, -1) OVER (PARTITION By Gender ORDER BY Salary) AS Lead_2,
+    LAG(Salary, 1, -1) OVER (PARTITION By Gender ORDER BY Salary) AS Lag_1
+FROM Employees
+
+--Name	Gender	Salary	Lead_2	Lag_1
+--Pam	Female	3000	6000	-1
+--Sara	Female	4000	8000	3000
+--Mary	Female	6000	-1		4000
+--Jodi	Female	8000	-1		6000
+--Mark	Male	1000	5000	-1
+--John	Male	2000	7000	1000
+--Todd	Male	5000	9000	2000
+--Ben	Male	7000	9500	5000
+--Tom	Male	9000	-1		7000
+--Ron	Male	9500	-1		9000
+```
+
 ## LEAD and LAG - Exercises [16]
 ## Introducing Subqueries [17]
 ## Introducing Subqueries - Exercises [18]
